@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+.main_top{
+    position: relative;
+}
+
+@font-face {
+    font-family: seoulnamsan;
+    src: url('./assets/fonts/SeoulNamsanM.ttf');
+}
+
+.cover {
+    width: 100%;
+    height: 400px;
+    left: 0px;
+    top: 0px;
+}
+
+.cv_txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: top;
+}
+
+.letter{
+    margin-right: 20px;
+    vertical-align: top;
+}
+
+
+.info_txt{
+    float: left;
+    margin-top: 200px;
+    margin-left: 50px;
+    font-family: seoulnamsan;
+    color: #4E94C7;
+}
+
+.info_txt1{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.info_txt2{
+    font-size: 30px;
+}
+
+.login_button{
+    position: static;
+    float: right;
+    margin-top:100px;
+    margin-right: 400px;
+    width: 200px;
+    font-family: seoulnamsan;
+}
+
+.btn-primary{
+    width: 500px;
+    height: 200px;
+    font-size: 80px;
+    background-color: #4E94C7;
+    border-color: #4E94C7;
+}
+
+.join{
+    position: static;
+    float:right;
+    margin-top:350px;
+    margin-right: -330px;
+    font-family: seoulnamsan;
+    font-size: 40px;
+}
