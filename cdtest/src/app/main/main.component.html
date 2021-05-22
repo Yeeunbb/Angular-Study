@@ -1,0 +1,45 @@
+<div class = "navbar">
+    <a routerLink="/main">
+      <img class="logo" src="/assets/images/logo2.png">
+    </a>
+
+    <div class = "buttons">
+        <button type="button" class="btn btts" (click)="clickedModal()">수조추가</button>
+        <button type="button" class="btn btts">수조삭제</button>
+        <button type="button" class="btn btts" (click)="logout()">로그아웃</button>
+    </div>
+  </div>
+
+  <app-tank-list></app-tank-list>
+
+  
+  <!-- Modal -->
+  <div [ngClass]="modal ? 'modal fade show d-block' : 'modal fade'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <img class="logo" src="/assets/images/logo2.png">
+            <button type="button" class="btn btts modalb">추가하기</button>
+            <button type="button" class="btn btts modalb" (click)="clickedModalClose()" 
+            style="margin-left: -90px;">취소</button>
+        </div>
+        
+        <div class="modal-body">
+          <form class="form-inline modalform">
+            <div class="form-group">
+                <label for="tankname" style="color: #4E94C7;">수조 이름</label>
+                <input class="form-control" name="tankname" #tankname>
+            </div>
+        
+            <div class="form-group">
+                <label for="fishname" style="color: #4E94C7;">어종</label>
+                <input class="form-control" name="fishname" #fishname>
+            </div>
+        </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="clickedModalClose()">Close</button>
+        </div> -->
+      </div>
+    </div>
+  </div>

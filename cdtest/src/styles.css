@@ -8,6 +8,39 @@
     src: url('./assets/fonts/SeoulNamsanM.ttf');
 }
 
+.load {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: seoulnamsan;
+    font-size: 100px;
+    font-weight: bold;
+    color:#4E94C7;
+  }
+
+.navbar {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    right: 0;
+    border-bottom: #4E94C7 solid;
+}
+.logo {
+    margin:20px;
+}
+.buttons {
+    float: right;
+}
+
+.btts {
+    color: #4E94C7;
+    font-family: seoulnamsan;
+    font-size: 35px;
+    font-weight: bold;
+    margin-right: 20px;
+}
 .cover {
     width: 100%;
     height: 400px;
@@ -23,15 +56,11 @@
     align-items: top;
 }
 
-.letter{
-    margin-right: 20px;
-    vertical-align: top;
-}
 
 
 .info_txt{
     float: left;
-    margin-top: 200px;
+    margin-top: 150px;
     margin-left: 50px;
     font-family: seoulnamsan;
     color: #4E94C7;
@@ -56,12 +85,102 @@
     font-family: seoulnamsan;
 }
 
+.form-inline{
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 40%;
+    font-family: seoulnamsan;
+
+}
+
+.form-control{
+    /* width: 40%;  */
+    height: auto;  /* 높이값 초기화 */
+    line-height : normal;  /* line-height 초기화 */
+    /* padding: .8em .5em;  */
+    padding: 20px 0px 20px 15px;
+    font-size: 20px;
+    font-family: inherit;  /* 폰트 상속 */
+    border: 1px solid #4E94C7;
+    border-radius: 10px;  /* iSO 둥근모서리 제거 */
+    outline-style: none;  /* 포커스시 발생하는 효과 제거를 원한다면 */
+    -webkit-appearance: none;  /* 브라우저별 기본 스타일링 제거 */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.form-group{
+    margin: 50px;
+}
+
+.joinform{
+    top: 35%;
+    left: 30%;
+}
+
+label {
+    font-size: 40px;
+}
+
 .btn-primary{
     width: 500px;
     height: 200px;
     font-size: 80px;
     background-color: #4E94C7;
     border-color: #4E94C7;
+}
+
+.inbtn{
+    position: absolute;
+    float: right;
+    border-radius: 10px;
+    width: 170px;
+    height: 100px;
+    top: 50%;
+    left: 65%;
+    margin: 108px 0px 0px 10px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 90px;
+    font-family: seoulnamsan;
+}
+
+.glogin {
+    position: absolute;
+    float: right;
+    border-radius: 10px;
+    width: 170px;
+    height: 100px;
+    top: 50%;
+    left: 65%;
+    margin: 260px 0px 0px 10px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 80px;
+    font-family: seoulnamsan;
+}
+
+.joinbtn{
+    position: absolute;
+    float: right;
+    width: 170px;
+    height: 245px;
+    top: 40%;
+    left: 70%;
+    margin: 108px 0px 0px 10px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 220px;
+    font-family: seoulnamsan;
+}
+
+.backword{
+    margin-left: 50px;
+}
+
+.home_buttons{
+    margin-top: 150px;
 }
 
 .join{
@@ -71,4 +190,95 @@
     margin-right: -330px;
     font-family: seoulnamsan;
     font-size: 40px;
+}
+
+.tank{
+    margin-top: 200px;
+    margin-left: 50px;
+}
+
+.light_logo{
+    height:130px;
+}
+
+.modal-header{
+    justify-content:space-around;
+    border-bottom: 0px;
+    padding-left: 0px;
+}
+
+.modal_body{
+    height: 400px;
+}
+
+.modalform{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+}
+
+.modalb{
+    margin: -10px;
+}
+
+.rangeInput{
+    width:40%;
+    display: inline;
+}
+.flowicon{
+    display: inline;
+    margin: 20px;
+    font-size: 40px;
+    font-family: seoulnamsan;
+    color: #4E94C7;
+
+}
+
+.nowdata {
+    margin-top:200px;
+    float: left;
+    font-family: seoulnamsan;
+    font-size: 40px;
+    left: 25%;
+}
+
+.vl {
+    border-left: 3px solid grey;
+    height: 70%;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 200px;
+}
+
+.range {
+    margin-top:200px;
+    float: right;
+    font-family: seoulnamsan;
+    font-size: 40px;
+    right: 25%;
+}
+
+.sensorvalue {
+    font-size: 50px;
+}
+
+.maintank{
+    float: left;
+    width: 500px;
+    margin: 100px;
+    margin-top: 250px;
+    font-family: seoulnamsan;
+    font-weight: bold;
+    font-size: 40px;
+    color: #4E94C7;
+}
+
+.tankinfo{
+    float: left;
+    font-family: seoulnamsan;
+    font-weight: bold;
+    font-size: 50px;
+    color: #4E94C7;
 }

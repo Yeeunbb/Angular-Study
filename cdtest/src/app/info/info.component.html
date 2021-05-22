@@ -1,0 +1,193 @@
+<div class = "navbar">
+    <a routerLink="/main">
+      <img class="logo" src="/assets/images/logo2.png">
+    </a>
+    <div class = "tankinfo" *ngIf="tank">
+
+        <img *ngIf="this.checkTankNow()" class="light_logo" src="/assets/images/greenlight.png" style="margin-right: 30px;">
+        <img *ngIf="!this.checkTankNow()" class="light_logo" src="/assets/images/redlight.png" style="margin-right: 30px;">
+
+      {{tank.tankName}} / {{tank.speciesName}}
+    </div>
+
+
+    <div class = "buttons">
+        <button type="button" class="btn btts" (click)="clickedModal()">수정하기</button>
+        <button type="button" class="btn btts">메모</button>
+    </div>
+  </div>
+
+
+  <div id = "content">
+      <div class="container infoContent">
+        <div class="nowdata" *ngIf="tank">
+            <div style="margin-bottom: 50px; margin-left: 100px; font-weight: bold; font-size: 60px;">
+              현재 데이터
+            </div>
+
+            <div class = "DO" style="margin-bottom: 50px;">
+              용존산소량(DO)
+              <img class="icon" src="/assets/images/DOicon.png"><br>
+              <div class="sensorvalue" style="color:#4E94C7; margin-left:200px; font-weight: bold;">
+                {{tank.sensor.DO}} mg/L 
+              </div>
+            </div>
+            <div class = "PH" style="margin-bottom: 50px;">
+              PH 
+              <img class="icon" src="/assets/images/PHicon.png"><br>
+              <div class="sensorvalue" style="color:#4E94C7; margin-left:200px; font-weight: bold;">
+                {{tank.sensor.PH}} ph
+              </div>
+            </div>
+            <div class = "temp"  style="margin-bottom: 50px;">
+              수온
+              <img class="icon" src="/assets/images/Tempicon.png"><br> 
+              <div class="sensorvalue" style="color:#4E94C7; margin-left:200px; font-weight: bold;">
+                {{tank.sensor.RTD}} °C
+              </div>
+            </div>
+            <div class = "EC">
+              염도
+              <img class="icon" src="/assets/images/ECicon.png"><br> 
+              <div class="sensorvalue" style="color:#4E94C7; margin-left:200px; font-weight: bold;">
+                {{tank.sensor.EC}} ‰
+              </div>
+            </div>
+        </div>
+        <div class="vl"></div>
+        <div class="range" *ngIf="tank">
+          <div style="margin-bottom: 50px; margin-left: 110px; font-weight: bold; font-size: 60px;">
+            범위
+          </div>
+
+          <div class = "DO" style="margin-bottom: 50px;">
+            용존산소량(DO) 범위              
+            <img class="icon" src="/assets/images/DOicon.png"><br>
+            <div class="sensorvalue" style="color:#4E94C7; margin-left:200px; font-weight: bold;">
+              {{tank.bounds.DO.min}} ~ {{tank.bounds.DO.max}} mg/L
+              </div>
+          </div>
+          <div class = "PH" style="margin-bottom: 50px;">
+            PH 범위
+            <img class="icon" src="/assets/images/PHicon.png"><br>
+            <div class="sensorvalue" style="color:#4E94C7; margin-left:200px; font-weight: bold;">
+            {{tank.bounds.PH.min}} ~ {{tank.bounds.PH.max}} ph
+            </div>
+          </div>
+          <div class = "temp" style="margin-bottom: 50px;">
+            수온 범위
+            <img class="icon" src="/assets/images/Tempicon.png"><br> 
+            <div class="sensorvalue" style="color:#4E94C7; margin-left:200px; font-weight: bold;">
+            {{tank.bounds.RTD.min}} ~ {{tank.bounds.RTD.max}} °C
+            </div>
+          </div>
+          <div class = "EC" style="margin-bottom: 50px;">
+            염도 범위
+            <img class="icon" src="/assets/images/ECicon.png"><br> 
+            <div class="sensorvalue" style="color:#4E94C7; margin-left:200px; font-weight: bold;">
+            {{tank.bounds.EC.min}} ~ {{tank.bounds.EC.max}} ‰
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  
+   <!-- Modal -->
+   <div [ngClass]="modal ? 'modal fade show d-block' : 'modal fade'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <img class="logo" src="/assets/images/logo2.png">
+            <button type="button" class="btn btts modalb" (click)="updateInfo()">수정하기</button>
+            <button type="button" class="btn btts modalb" (click)="clickedModalClose()" 
+            style="margin-left: -90px;">닫기</button>
+        </div>
+        
+        <div class="modal-body">
+          <form class="form-inline modalform">
+            <!--
+            <div class="form-group">
+                <label for="tankname" style="color: #4E94C7;">용존산소량(DO)</label><br>
+                <input class="form-control rangeInput" name="tankname" #tankname>
+                <div class="flowicon">~</div>
+                <input class="form-control rangeInput" name="tankname" #tankname>
+
+            </div>
+          -->
+
+            <div class="form-group">
+              <label for="DO" style="color: #4E94C7;">용존산소량(DO)</label><br>
+              <input 
+              type="number"
+              class="form-control rangeInput" 
+              name="DOmin" 
+              [(ngModel)]="currentTank.bounds.DO.min"
+              />
+              <div class="flowicon">~</div>
+              <input 
+              type="number"
+              class="form-control rangeInput" 
+              name="DOmax" 
+              [(ngModel)]="currentTank.bounds.DO.max"
+              />
+          </div>
+        
+            <div class="form-group">
+                <label for="PH" style="color: #4E94C7;">PH</label><br>
+                <input 
+                type="number"
+                class="form-control rangeInput" 
+                name="PHmin" 
+                [(ngModel)]="currentTank.bounds.PH.min"
+                />
+                <div class="flowicon">~</div>
+                <input 
+                type="number"
+                class="form-control rangeInput" 
+                name="PHmax" 
+                [(ngModel)]="currentTank.bounds.PH.max"
+                />
+            </div>
+
+            <div class="form-group">
+              <label for="RTD" style="color: #4E94C7;">수온</label><br>
+              <input 
+              type="number"
+              class="form-control rangeInput" 
+              name="RTDmin" 
+              [(ngModel)]="currentTank.bounds.RTD.min"
+              />
+              <div class="flowicon">~</div>
+              <input 
+              type="number"
+              class="form-control rangeInput" 
+              name="RTDmax" 
+              [(ngModel)]="currentTank.bounds.RTD.max"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="EC" style="color: #4E94C7;">염도</label><br>
+              <input 
+              type="number"
+              class="form-control rangeInput" 
+              name="ECmin" 
+              [(ngModel)]="currentTank.bounds.EC.min"
+              />
+              <div class="flowicon">~</div>
+              <input 
+              type="number"
+              class="form-control rangeInput" 
+              name="ECmax" 
+              [(ngModel)]="currentTank.bounds.EC.max"
+              />
+            </div>
+        </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="clickedModalClose()">Close</button>
+        </div> -->
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,8 @@
+<div class="maintank" *ngIf="tank">
+    <a routerLink='/info/{{tank.tankName}}/{{tank.speciesName}}/{{tank.id}}'>
+      <img *ngIf="this.checkTank()" class="light" src="/assets/images/greenlight.png" style="width: 400px">
+      <img *ngIf="!this.checkTank()" class="light" src="/assets/images/redlight.png" style="width: 400px"></a>
+      <div style="padding-left: 16%; margin-top:20px">
+        {{tank.tankName}} / {{tank.speciesName}}
+      </div>
+</div>
